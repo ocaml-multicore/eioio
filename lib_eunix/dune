@@ -1,4 +1,6 @@
 (library
  (name eunix)
+ (enabled_if
+  (= %{system} linux))
  (public_name eunix)
  (libraries eio fibreslib unix uring bheap logs fmt bigstringaf ctf))

@@ -31,6 +31,15 @@
   uring
   (bheap (>= 2.0.0))))
 (package
+ (name edispatch)
+ (synopsis "Eio implementation for Apple using GCD")
+ (description "An eio implementation for Apple devices using Grand Central Dispatch (libdispatch)")
+ (depends
+  (ctf (= :version))
+  (fibreslib (= :version))
+  (eio (= :version))
+  dispatch))
+(package
  (name fibreslib)
  (synopsis "Effect-based synchronisation primitives")
  (description "An effect-based API for promises and other synchronisation primitives.")

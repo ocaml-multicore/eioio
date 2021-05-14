@@ -1,15 +1,21 @@
 (library
-  (name eurcp_lib)
-  (modules eurcp_lib)
-  (libraries eunix uring))
+ (name eurcp_lib)
+ (enabled_if
+  (= %{system} linux))
+ (modules eurcp_lib)
+ (libraries eunix uring))
 
 (executable
  (name eurcp)
  (modules eurcp)
+ (enabled_if
+  (= %{system} linux))
  (libraries cmdliner logs.cli logs.fmt fmt.tty fmt.cli eurcp_lib))
 
 (executable
  (name basic_eunix)
+ (enabled_if
+  (= %{system} linux))
  (modules basic_eunix)
  (libraries logs.fmt fmt.tty eurcp_lib))
 
@@ -19,5 +25,7 @@
 
 (test
  (name test)
+ (enabled_if
+  (= %{system} linux))
  (modules test)
  (libraries alcotest eunix uring))
