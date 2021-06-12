@@ -1,4 +1,7 @@
 (library
   (name eio_main)
   (public_name eio_main)
-  (libraries eunix))
+  (libraries 
+    (select main.ml from 
+      (edispatch -> main.macos.ml)
+      (eunix -> main.linux.ml))))

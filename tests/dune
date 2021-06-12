@@ -19,13 +19,23 @@
  (modules basic_eunix)
  (libraries logs.fmt fmt.tty eurcp_lib))
 
-(mdx
-  (packages eunix)
-  (files test_switch.md))
+; (mdx
+;   (packages eunix)
+;   (files test_switch.md))
 
 (test
- (name test)
- (enabled_if
-  (= %{system} linux))
- (modules test)
- (libraries alcotest eunix uring))
+ (name test_edispatch)
+ (modules test_edispatch)
+ (libraries alcotest eio_main edispatch))
+
+(executable
+ (name basic_edispatch)
+ (modules basic_edispatch)
+ (libraries eio_main fibreslib edispatch))
+
+; (test
+;  (name test)
+;  (enabled_if
+;   (= %{system} linux))
+;  (modules test)
+;  (libraries alcotest eunix uring))

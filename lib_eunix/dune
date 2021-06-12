@@ -3,4 +3,5 @@
  (enabled_if
   (= %{system} linux))
  (public_name eunix)
+ (optional)
  (libraries eio fibreslib unix uring bheap logs fmt bigstringaf ctf))
